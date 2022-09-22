@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CurrentResult
+  m_Name: QuestionBox
   m_Shader: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -41,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 838161bf1449ee849b63571caba956e3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8be144e9f8d384346aa3ab3eace1cf47, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

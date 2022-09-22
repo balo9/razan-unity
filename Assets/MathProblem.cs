@@ -8,7 +8,6 @@ public class MathProblem: MonoBehaviour {
 
   public Text firstNumber;
   public Text secondNumber;
-
   public Text answer1;
   public Text answer2;
   public Text answer3;
@@ -33,14 +32,23 @@ public class MathProblem: MonoBehaviour {
 
   //Scoring (counter)
   public int additionScore = 0;
-  public Text currentResult;
+  public Text score;
   public Text result;
-
+  
+  //Result Window
+  public Text completeText;
+  //public Text resultScore;
+  public Button replayButton;
+  public Button backButton;
+  public Transform stars; //filled stars depends on the score
+  protected const int fillStars = 100/3; //calculate how much we fill the star depends on the score
+  public bool useFillAmount = false; //??
+  
   private void Start() {
     DisplayMathProblem();
   }
 
-  //The question generator
+  //The question generator method
   public void DisplayMathProblem() {
 
     //first number
@@ -116,29 +124,41 @@ public class MathProblem: MonoBehaviour {
     }
 
   }
+
+
+
+
+
+
+//method to calculate the score and print it on screen
+public void AddScore(){
+  additionScore+=1;
+  score.text= "" + additionScore;
+}
+
+
   // method to call when there is no questions to display to show the score    
-  public void DisplayScore() {
+  public void DisplayFinalScore() {
 
     //display message for excellent score   
     if (additionScore >= 7) {
-      //" " + additionScore;
+      result.text = "Excellent! Your Score is " + additionScore;
     }
 
     //display message for good score
     if (additionScore >= 4 && additionScore <= 6) {
-      //" " + additionScore;
+     result.text = "Good! Your Score is " + additionScore;
     }
 
     //display message for bad score
     if (additionScore <= 3) {
-      //" " + additionScore;
+     result.text = "Try Again! Your Score is " + additionScore;
     }
 
   }
 
-  public void DisplayCurrentScore() {
 
-  }
+
 
   //option answer 1
   public void ButtonAnswer1() {
@@ -146,7 +166,8 @@ public class MathProblem: MonoBehaviour {
       rightOrWrong_Text.enabled = true;
       rightOrWrong_Text.color = Color.green;
       rightOrWrong_Text.text = ("✔");
-      additionScore++;
+      //additionScore++;
+      AddScore();
       Invoke("TurnOffText", 1);
     } else {
       rightOrWrong_Text.enabled = true;
@@ -162,7 +183,8 @@ public class MathProblem: MonoBehaviour {
       rightOrWrong_Text.enabled = true;
       rightOrWrong_Text.color = Color.green;
       rightOrWrong_Text.text = ("✔");
-      additionScore++;
+      //additionScore++;
+      AddScore();
       Invoke("TurnOffText", 1);
     } else {
       rightOrWrong_Text.enabled = true;
@@ -178,7 +200,8 @@ public class MathProblem: MonoBehaviour {
       rightOrWrong_Text.enabled = true;
       rightOrWrong_Text.color = Color.green;
       rightOrWrong_Text.text = ("✔");
-      additionScore++;
+      //additionScore++;
+      AddScore();
       Invoke("TurnOffText", 1);
     } else {
       rightOrWrong_Text.enabled = true;
@@ -194,7 +217,8 @@ public class MathProblem: MonoBehaviour {
       rightOrWrong_Text.enabled = true;
       rightOrWrong_Text.color = Color.green;
       rightOrWrong_Text.text = ("✔");
-      additionScore++;
+      //additionScore++;
+      AddScore();
       Invoke("TurnOffText", 1);
     } else {
       rightOrWrong_Text.enabled = true;
@@ -217,7 +241,7 @@ public class MathProblem: MonoBehaviour {
 
     //if the counter reaches 0 (no more questions), display the score
     else {
-      DisplayScore();
+      DisplayFinalScore();
     }
   }
 
